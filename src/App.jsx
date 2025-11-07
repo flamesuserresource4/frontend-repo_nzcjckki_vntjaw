@@ -1,13 +1,17 @@
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Programs from "./components/Programs";
 import Values from "./components/Values";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import About from "./pages/About";
+import ProgramsPage from "./pages/ProgramsPage";
+import Volunteer from "./pages/Volunteer";
 
-function App() {
+function Home() {
   return (
-    <div className="font-inter bg-[#FDFBF8] text-[#2C2C2C]">
-      {/* Hero */}
+    <div>
       <Hero />
 
       {/* About / Story */}
@@ -106,8 +110,20 @@ function App() {
 
       {/* Contact */}
       <Contact />
+    </div>
+  );
+}
 
-      {/* Footer */}
+function App() {
+  return (
+    <div className="font-inter bg-[#FDFBF8] text-[#2C2C2C] min-h-screen">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/programs" element={<ProgramsPage />} />
+        <Route path="/volunteer" element={<Volunteer />} />
+      </Routes>
       <Footer />
     </div>
   );
